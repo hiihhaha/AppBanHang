@@ -11,6 +11,5 @@ class LoaiSp (
     var id : Int,
     var name : String,
     var hinhanh : String,
-    var loai : Int
         ) {
 }

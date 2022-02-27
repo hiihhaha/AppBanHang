@@ -12,9 +12,6 @@ import com.google.gson.GsonBuilder
 
 import com.google.gson.Gson
 
-
-
-
 class RetrofitCilent {
 
     // companion object : tất cả viết trong hàm này đều là static

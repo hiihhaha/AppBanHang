@@ -37,8 +37,11 @@ class MainActivity : AppCompatActivity() {
     var apiBanHang = RetrofitCilent.getInstance(BaseUrl)?.create(ApiBanHang ::class.java)
 
     companion object{
+        const val TRANG_CHU = 0
         const val DIEN_THOAI = 1
         const val LAP_TOP = 2
+        const val LIEN_HE = 3
+        const val THONG_TIN = 4
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -185,7 +188,7 @@ class MainActivity : AppCompatActivity() {
     * */
     private fun onClickLoaiSP(loaiSp: LoaiSp){
         Toast.makeText(this, loaiSp.name, Toast.LENGTH_SHORT).show()
-        when(loaiSp.loai){
+        when(loaiSp.id){
             DIEN_THOAI -> {
                 var intent = Intent(this,DienThoaiActivity::class.java)
                 startActivity(intent)

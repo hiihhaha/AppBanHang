@@ -14,9 +14,9 @@ interface ApiBanHang {
     @GET("getLoaiSpMoi.php")
     fun getDanhSachSpMoi(): Observable<SanPhamResponse>
 
-    @GET("getchitiet.php/{loai}")
+    @GET("getchitiet.php")
     fun getChiTiet(
-        @Path("loai") loai: Int
+        @Query("loai") loai: Int
     ): Observable<SanPhamResponse>
 
 

@@ -19,7 +19,6 @@ import kotlinx.android.synthetic.main.activity_dien_thoai.*
 
 class DienThoaiActivity : AppCompatActivity() {
     var apiBanHang = RetrofitCilent.getInstance(Utils.BaseUrl)?.create(ApiBanHang ::class.java)
-
     var adapterDt : DienThoaiAdapter?=null
     var listDt = ArrayList<SanPham>()
 
