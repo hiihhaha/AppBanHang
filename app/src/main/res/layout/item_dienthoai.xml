@@ -1,49 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="5dp"
     android:elevation="8dp"
-    app:cardCornerRadius="4dp"
-    android:layout_margin="5dp">
+    app:cardCornerRadius="4dp">
+
     <LinearLayout
-        android:weightSum="10"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
         <ImageView
             android:id="@+id/img_itemdt"
-            android:src="@drawable/images"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
             android:layout_weight="3"
-            android:layout_width="0dp"
-            android:layout_height="100dp" />
+            android:src="@drawable/images" />
+
         <LinearLayout
-            android:orientation="vertical"
-            android:layout_weight="7"
             android:layout_width="0dp"
-            android:layout_height="wrap_content" >
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/txtdt_itemten"
-                android:textStyle="bold"
-                android:layout_gravity="center"
-                android:textSize="20sp"
-                android:text="Tên Sản Phẩm"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"/>
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Tên Sản Phẩm"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/txtdt_itemgia"
-                android:textColor="@android:color/holo_red_light"
-                android:textSize="16sp"
-                android:text="Giá : 25000đ"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"/>
+                android:layout_height="wrap_content"
+                android:text="Giá : 25000đ"
+                android:textColor="@android:color/holo_red_light"
+                android:textSize="16sp" />
+
             <TextView
                 android:id="@+id/txtdt_itemmota"
-                android:textColor="@android:color/holo_red_light"
-                android:textSize="14sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:lines="2"
+                android:scrollIndicators="end"
                 android:text="Mô tả : "
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"/>
+                android:textColor="@android:color/holo_red_light"
+                android:textSize="14sp" />
 
         </LinearLayout>
 

@@ -17,11 +17,12 @@ class DienThoaiAdapter(
 
     var context : Context,
     var listDienThoai : ArrayList<SanPham>,
+    var setOnclickItem : (item : SanPham) -> Unit
 
     ) : RecyclerView.Adapter<DienThoaiAdapter.MyViewHolder> () {
 
 
-    class MyViewHolder (itemVew : View) : RecyclerView.ViewHolder(itemVew) {
+    class MyViewHolder (itemVew : View) : RecyclerView.ViewHolder(itemVew){
         var  txtten = itemVew.findViewById<TextView>(R.id.txtdt_itemten)
         var  txtgia = itemVew.findViewById<TextView>(R.id.txtdt_itemgia)
         var  txtmota = itemVew.findViewById<TextView>(R.id.txtdt_itemmota)
@@ -31,7 +32,7 @@ class DienThoaiAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_dienthoai,parent,false)
-        return DienThoaiAdapter.MyViewHolder(view)
+        return MyViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
@@ -39,10 +40,12 @@ class DienThoaiAdapter(
         holder.txtten.text = dienThoai.ten
         val formatter = DecimalFormat("#,###")
         val giaSP = formatter.format(dienThoai.gia)
-
         holder.txtgia.text = "Giá : $giaSP đ"
         holder.txtmota.text = dienThoai.mota
         Glide.with(context).load(dienThoai.hinhanh).into(holder.imghinhanh)
+        holder.itemView.setOnClickListener {
+            setOnclickItem.invoke(dienThoai)
+        }
     }
 
     override fun getItemCount(): Int= listDienThoai.size

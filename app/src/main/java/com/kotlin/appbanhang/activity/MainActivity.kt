@@ -27,6 +27,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observer
 import io.reactivex.rxjava3.disposables.Disposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.android.synthetic.main.activity_dien_thoai_lap_top.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -190,11 +191,14 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this, loaiSp.name, Toast.LENGTH_SHORT).show()
         when(loaiSp.id){
             DIEN_THOAI -> {
-                var intent = Intent(this,DienThoaiActivity::class.java)
+                var intent = Intent(this,DienThoaiLapTopActivity::class.java)
+                intent.putExtra("loai", 1)
                 startActivity(intent)
             }
             LAP_TOP -> {
-
+                var intent = Intent (this,DienThoaiLapTopActivity::class.java)
+                intent.putExtra("loai", 2)
+                startActivity(intent)
             }
         }
     }
