@@ -22,12 +22,15 @@ class DienThoaiActivity : AppCompatActivity() {
     var adapterDt : DienThoaiAdapter?=null
     var listDt = ArrayList<SanPham>()
 
+    lateinit var dialog : Loadingdialog
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dien_thoai)
-
+        dialog = Loadingdialog(this)
 
         setUpRecyclerviewSpMoi()
+        dialog.showDialog()
         getSpDienThoai()
     }
 
@@ -49,8 +52,8 @@ class DienThoaiActivity : AppCompatActivity() {
             }
 
             override fun onNext(sanPhamResponse: SanPhamResponse) {
+                dialog.hideDialog() //  gọi thành công/thất bại sẽ ẩn đi
                 sanPhamResponse.result?.toMutableList()?.let {
-
                     listDt.addAll(it)
                     adapterDt?.notifyDataSetChanged()
                 }
@@ -58,6 +61,7 @@ class DienThoaiActivity : AppCompatActivity() {
             }
 
             override fun onError(e: Throwable) {
+                dialog.hideDialog()
                 println(e.message)
                 Toast.makeText(this@DienThoaiActivity,e.message,Toast.LENGTH_SHORT).show()
 
