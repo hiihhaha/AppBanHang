@@ -190,6 +190,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun onItemClick(sanPham: SanPham) {
         Toast.makeText(this, sanPham.ten, Toast.LENGTH_SHORT).show()
+        var intent = Intent(this, ChiTietMainActivity::class.java)
+
+        intent.putExtra("dienthoai", sanPham)
+        startActivity(intent)
     }
 
 }
