@@ -1,78 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.ChiTietMainActivity">
 
-    <ImageView
-        android:id="@+id/img_hinhanhsp"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:padding="8dp"
-        android:src="@drawable/ic_media_24"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+  <androidx.appcompat.widget.Toolbar
+      android:id="@+id/toolbarchitiet"
+      app:layout_constraintTop_toTopOf="parent"
+      android:layout_width="match_parent"
+      android:layout_height="?attr/actionBarSize"
+      app:title="Chi Tiết Sản Phẩm"
+      android:background="#6BE6F6"/>
+      <LinearLayout
+          android:id="@+id/layou1"
+          android:layout_marginTop="5dp"
+          app:layout_constraintTop_toBottomOf="@+id/toolbarchitiet"
+          android:orientation="horizontal"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content" >
+          <ImageView
+              android:src="@drawable/images"
+              android:id="@+id/img_chitiet"
+              android:layout_width="152dp"
+              android:layout_height="200dp" />
+          <LinearLayout
+              android:id="@+id/layout2"
+              android:layout_marginLeft="5dp"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" >
+              <TextView
+                  android:id="@+id/tv_tensp"
+                  android:text="Tên Sản Phẩm"
+                  android:textSize="16sp"
+                  android:gravity="center"
+                  android:textStyle="bold"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
+              <TextView
+                  android:id="@+id/tv_gia"
+                  android:layout_marginLeft="5dp"
+                  android:textColor="@android:color/holo_red_light"
+                  android:layout_marginTop="5dp"
+                  android:text="Giá : 25000đ"
+                  android:textSize="16sp"
+                  android:textStyle="bold"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
+              <Spinner
+                  android:id="@+id/spinner"
+                  android:layout_marginEnd="20dp"
+                  android:layout_marginTop="5dp"
+                  android:layout_marginStart="20dp"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
+              <Button
+                  android:id="@+id/btn_them"
+                  android:layout_marginEnd="15dp"
+                  android:layout_marginStart="15dp"
+                  android:text="Thêm vào giỏ hàng"
+                  android:textColor="@android:color/white"
+                  android:layout_marginTop="5dp"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
 
-    <TextView
-        android:textColor="@android:color/holo_red_light"
-        android:textSize="18dp"
-        android:id="@+id/tv_tensp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+          </LinearLayout>
+      </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_marginTop="5dp"
-        android:text="Tên Sản Phẩm"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/img_hinhanhsp"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/layou1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" >
+        <TextView
+            android:id="@+id/tv_thongtinsp"
+            android:textSize="16dp"
+            android:textColor="@android:color/holo_red_light"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:text="Thông tin chi tiết"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <TextView
+                android:id="@+id/tv_motachitiet"
+                android:layout_marginLeft="10dp"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-    <TextView
-        android:textColor="@android:color/holo_red_light"
-        android:textSize="18dp"
-        android:id="@+id/tv_giasp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="Giá : 25000đ"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/img_hinhanhsp"
-        app:layout_constraintTop_toBottomOf="@id/tv_tensp" />
+        </ScrollView>
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:layout_marginTop="5dp"
-        android:src="@drawable/ic_control_point_24"
-        android:id="@+id/img_cong"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        app:layout_constraintBottom_toBottomOf="@id/tv_soluong"
-        app:layout_constraintEnd_toStartOf="@id/tv_soluong"
-        app:layout_constraintStart_toEndOf="@id/img_hinhanhsp"
-        app:layout_constraintTop_toBottomOf="@id/tv_giasp" />
-
-    <TextView
-        android:layout_marginTop="5dp"
-        android:id="@+id/tv_soluong"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0"
-        android:textSize="36sp"
-        app:layout_constraintEnd_toStartOf="@id/img_tru"
-        app:layout_constraintStart_toEndOf="@id/img_cong"
-        app:layout_constraintTop_toBottomOf="@id/tv_giasp" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:layout_marginTop="5dp"
-        android:src="@drawable/ic_outline_24"
-        android:id="@+id/img_tru"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        app:layout_constraintBottom_toBottomOf="@id/tv_soluong"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tv_soluong"
-        app:layout_constraintTop_toBottomOf="@id/tv_giasp" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

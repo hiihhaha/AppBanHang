@@ -8,5 +8,7 @@ class LapTopActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lap_top)
+
+
     }
 }

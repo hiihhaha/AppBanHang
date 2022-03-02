@@ -42,10 +42,10 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:paddingVertical="6dp"
-            android:text="Giá : 25000đ"
+            android:text="Giá : 250000đ"
             app:layout_constraintBottom_toBottomOf="parent"
             android:textColor="@android:color/holo_red_light"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <ImageView
