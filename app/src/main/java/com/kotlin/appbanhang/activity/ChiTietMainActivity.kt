@@ -1,11 +1,18 @@
 package com.kotlin.appbanhang.activity
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.kotlin.appbanhang.R
+import com.kotlin.appbanhang.model.GioHangController
 import com.kotlin.appbanhang.model.SanPham
+import com.kotlin.appbanhang.utils.Utils
+import com.skydoves.powerspinner.SpinnerAnimation
+import com.skydoves.powerspinner.SpinnerGravity
+import com.skydoves.powerspinner.createPowerSpinnerView
 import kotlinx.android.synthetic.main.activity_chi_tiet_main.*
 import java.text.DecimalFormat
 
@@ -18,16 +25,21 @@ class ChiTietMainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_chi_tiet_main)
         // Lấy dữ liệu qua intent bằng key = "dienthoai"
         sanPham = intent.getSerializableExtra("dienthoai") as SanPham
-
+        initControl()
         // Setup Spinner
         setupSpinner()
 
         // Check sản phẩm k null thì hiển thị lên màn hình
         sanPham?.let {
-            initData(it)
+            showSanPham(it)
         }
+    }
 
+
+    private fun initControl() {
+        img_back.setOnClickListener{onBackPressed()}
         btn_them.setOnClickListener {
+            sanPham?.let { GioHangController.addSanPham(it)}
 
         }
     }
@@ -46,13 +58,14 @@ class ChiTietMainActivity : AppCompatActivity() {
         spinner.adapter = adapterSpinner
     }
 
-    private fun initData(sanPham: SanPham) {
+    // Hiển thị sản phẩm
+    private fun showSanPham(sanPham: SanPham) {
         tv_tensp.text = sanPham.ten
         tv_motachitiet.text = sanPham.mota
         Glide.with(this).load(sanPham.hinhanh).into(img_chitiet)
         val formatter = DecimalFormat("#,###")
         val giaSP = formatter.format(sanPham.gia)
-        tv_gia.text = "Giá : $giaSP đ"
+        tv_gia.text = "Giá : $giaSP Đ"
     }
 
 

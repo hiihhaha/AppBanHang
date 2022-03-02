@@ -40,7 +40,7 @@ class DienThoaiAdapter(
         holder.txtten.text = dienThoai.ten
         val formatter = DecimalFormat("#,###")
         val giaSP = formatter.format(dienThoai.gia)
-        holder.txtgia.text = "Giá : $giaSP đ"
+        holder.txtgia.text = "Giá : $giaSP Đ"
         holder.txtmota.text = dienThoai.mota
         Glide.with(context).load(dienThoai.hinhanh).into(holder.imghinhanh)
         holder.itemView.setOnClickListener {

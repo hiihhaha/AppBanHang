@@ -7,14 +7,41 @@
     android:layout_height="match_parent"
     tools:context=".activity.ChiTietMainActivity">
 
-  <androidx.appcompat.widget.Toolbar
+  <androidx.constraintlayout.widget.ConstraintLayout
       app:navigationIcon="@drawable/ic_back_24"
       android:id="@+id/toolbarchitiet"
       app:layout_constraintTop_toTopOf="parent"
       android:layout_width="match_parent"
       android:layout_height="?attr/actionBarSize"
       app:title="Chi Tiết Sản Phẩm"
-      android:background="#6BE6F6"/>
+      android:background="#6BE6F6">
+        <ImageView
+            android:layout_marginLeft="10dp"
+            android:id="@+id/img_back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/ic_back_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="32dp"
+            android:layout_height="32dp" />
+      <ImageView
+          android:layout_marginTop="8dp"
+          app:layout_constraintTop_toTopOf="parent"
+          android:src="@drawable/ic_more_horiz_24"
+          app:layout_constraintStart_toStartOf="@id/img_cart"
+          app:layout_constraintBottom_toTopOf="@id/img_cart"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content" />
+      <ImageView
+          android:layout_marginRight="10dp"
+          android:id="@+id/img_cart"
+          android:src="@drawable/ic_cart_24"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          android:layout_width="32dp"
+          android:layout_height="32dp"/>
+  </androidx.constraintlayout.widget.ConstraintLayout>
       <LinearLayout
           android:id="@+id/layou1"
           android:layout_marginTop="5dp"
@@ -52,7 +79,7 @@
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content" />
               <Spinner
-                  android:gravity="center"
+                  android:layout_gravity="center"
                   android:id="@+id/spinner"
                   android:background="@drawable/spinner"
                   android:layout_marginEnd="20dp"

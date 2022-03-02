@@ -41,6 +41,7 @@ class DienThoaiLapTopActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dien_thoai_lap_top)
+        toolbarmanhinhdienthoai.setOnClickListener{onBackPressed()}
         loai = intent.getIntExtra("loai", 1)
         setUpRecyclerviewSpMoi()
         getSpDienThoai()
