@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppBanHang">
         <activity
+            android:name=".activity.GioHangActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.ChiTietMainActivity"
             android:exported="false" />
         <activity

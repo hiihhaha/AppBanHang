@@ -3,9 +3,14 @@ package com.kotlin.appbanhang.activity
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
+import com.google.android.material.badge.BadgeDrawable
+import com.google.android.material.badge.BadgeUtils
 import com.kotlin.appbanhang.R
 import com.kotlin.appbanhang.model.GioHangController
 import com.kotlin.appbanhang.model.SanPham
@@ -18,7 +23,8 @@ import java.text.DecimalFormat
 
 class ChiTietMainActivity : AppCompatActivity() {
 
-    var sanPham : SanPham? = null
+    var sanPham: SanPham? = null
+    var soLuong = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,15 +39,20 @@ class ChiTietMainActivity : AppCompatActivity() {
         sanPham?.let {
             showSanPham(it)
         }
+
+        // Lần đâu vào màn hình kiểm tra giỏ hàng và hiển thị
+        updateUIGioHang()
     }
 
 
     private fun initControl() {
-        img_back.setOnClickListener{onBackPressed()}
+        img_back.setOnClickListener { onBackPressed() }
         btn_them.setOnClickListener {
-            sanPham?.let { GioHangController.addSanPham(it)}
-
+            sanPham?.let { GioHangController.addSanPham(it, soLuong) }
+            // Cập nhật lại hiển thị giỏ hàng
+            updateUIGioHang()
         }
+
     }
 
     private fun setupSpinner() {
@@ -49,13 +60,37 @@ class ChiTietMainActivity : AppCompatActivity() {
         val listSoluong = arrayListOf<Int>()
 
         // Add số lượng
-        for (i in 0..10){listSoluong.add(i)}
+        for (i in 1..10) {
+            listSoluong.add(i)
+        }
 
         // Tạo adapter
-        val adapterSpinner = ArrayAdapter(this,android.R.layout.simple_spinner_item,listSoluong)
+        val adapterSpinner = ArrayAdapter(this, android.R.layout.simple_spinner_item, listSoluong)
 
         // truyền adapter vào spinner
         spinner.adapter = adapterSpinner
+
+        // Chọn giá trị mặc định ban đầu ở vị trí đầu tiên
+        spinner.setSelection(0)
+
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                // Khi chọn 1 item trong danh sách số lượng nó sẽ vào đây
+                // position là vị trí của item được chọn
+
+                soLuong = listSoluong[position]
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                // Khi k chọn gì nó sẽ vào đây
+            }
+
+        }
     }
 
     // Hiển thị sản phẩm
@@ -68,5 +103,17 @@ class ChiTietMainActivity : AppCompatActivity() {
         tv_gia.text = "Giá : $giaSP Đ"
     }
 
+    // Hiển thị giỏ hàng
+    private fun updateUIGioHang(){
+        var soLuong = 0
+        GioHangController.manggiohang.forEach {
+            // Cộng lại tổng số lượng trong giỏ hàng
+            soLuong += it.soluong
+        }
 
+        // Kiểm tra nếu số lượng lớn hơn 0 thì hiển thị k thì ẩn đi
+        txt_soluong.isVisible = soLuong > 0
+        // Hiển thị số lên giỏ hàng
+        txt_soluong.text = soLuong.toString()
+    }
 }

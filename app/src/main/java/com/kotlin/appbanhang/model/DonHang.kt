@@ -6,12 +6,14 @@ class GioHangController() {
     companion object {
         val manggiohang = arrayListOf<DonHang>()
 
-        fun addSanPham(sanPham: SanPham) {
+        fun addSanPham(sanPham: SanPham, soluong: Int = 1) {
             // Nếu giỏ hàng trống thì thêm luôn
             if (manggiohang.isEmpty()) {
-                DonHang(
-                    sanPham = sanPham,
-                    soluong = 1
+                manggiohang.add(
+                    DonHang(
+                        sanPham = sanPham,
+                        soluong = soluong
+                    )
                 )
                 return
             }
@@ -19,19 +21,21 @@ class GioHangController() {
             manggiohang.forEach {
                 // Nếu sản phẩm đã tồn tại thì thêm số lượng
                 if (it.sanPham.id == sanPham.id) {
-                    it.soluong += 1
+                    it.soluong += soluong
                 } else {
                     // Nếu sản phẩm chưa tồn tại thì thêm vào
-                    DonHang(
-                        sanPham = sanPham,
-                        soluong = 1
+                    manggiohang.add(
+                        DonHang(
+                            sanPham = sanPham,
+                            soluong = soluong
+                        )
                     )
                 }
             }
         }
 
 
-        fun deleteSanPham(){
+        fun deleteSanPham() {
 
         }
     }

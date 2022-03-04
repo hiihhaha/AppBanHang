@@ -38,9 +38,8 @@ class SpMoiAdapter(
         }
     }
 
-    override fun getItemCount(): Int {
-       return listSanPham.size
-    }
+    override fun getItemCount(): Int = listSanPham.size
+
     class ViewHolder (itemVew : View) : RecyclerView.ViewHolder(itemVew){
         var txtten = itemVew.findViewById<TextView>(R.id.item_ten)
         var txtgia = itemVew.findViewById<TextView>(R.id.item_gia)
