@@ -44,5 +44,4 @@ class GioHangController() {
 class DonHang(
     var sanPham: SanPham,
     var soluong: Int,
-    var tongtien: Int = sanPham.gia * soluong
 )

@@ -1,5 +1,6 @@
 package com.kotlin.appbanhang.activity
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -45,6 +46,10 @@ class ChiTietMainActivity : AppCompatActivity() {
     }
 
     private fun initControl() {
+        img_cart.setOnClickListener {
+            var intent = Intent(this,GioHangActivity::class.java)
+            startActivity(intent)
+        }
         img_back.setOnClickListener { onBackPressed() }
         btn_them.setOnClickListener {
             sanPham?.let { GioHangController.addSanPham(it, soLuong) }
