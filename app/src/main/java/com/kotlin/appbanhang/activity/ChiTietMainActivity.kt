@@ -44,7 +44,6 @@ class ChiTietMainActivity : AppCompatActivity() {
         updateUIGioHang()
     }
 
-
     private fun initControl() {
         img_back.setOnClickListener { onBackPressed() }
         btn_them.setOnClickListener {
@@ -52,7 +51,6 @@ class ChiTietMainActivity : AppCompatActivity() {
             // Cập nhật lại hiển thị giỏ hàng
             updateUIGioHang()
         }
-
     }
 
     private fun setupSpinner() {
@@ -89,7 +87,6 @@ class ChiTietMainActivity : AppCompatActivity() {
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 // Khi k chọn gì nó sẽ vào đây
             }
-
         }
     }
 
@@ -104,13 +101,12 @@ class ChiTietMainActivity : AppCompatActivity() {
     }
 
     // Hiển thị giỏ hàng
-    private fun updateUIGioHang(){
+    private fun updateUIGioHang() {
         var soLuong = 0
         GioHangController.manggiohang.forEach {
             // Cộng lại tổng số lượng trong giỏ hàng
             soLuong += it.soluong
         }
-
         // Kiểm tra nếu số lượng lớn hơn 0 thì hiển thị k thì ẩn đi
         txt_soluong.isVisible = soLuong > 0
         // Hiển thị số lên giỏ hàng

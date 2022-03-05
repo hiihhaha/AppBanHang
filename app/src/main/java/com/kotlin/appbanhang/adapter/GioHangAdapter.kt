@@ -9,12 +9,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.kotlin.appbanhang.R
+import com.kotlin.appbanhang.model.DonHang
 import com.kotlin.appbanhang.model.SanPham
 import java.text.DecimalFormat
 
 class GioHangAdapter(
     var context: Context,
-    var lisGioHang : ArrayList<SanPham>
+    var listDonHang : ArrayList<DonHang>
 ) : RecyclerView.Adapter<GioHangAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GioHangAdapter.ViewHolder {
@@ -23,18 +24,19 @@ class GioHangAdapter(
     }
 
     override fun onBindViewHolder(holder: GioHangAdapter.ViewHolder, position: Int) {
-        var sanPham = lisGioHang [position]
+        var donHang = listDonHang [position]
+        var sanPham = donHang.sanPham
         Glide.with(context).load(sanPham.hinhanh).into(holder.img_giohang)
         holder.txttensp.text = sanPham.ten
         val formatter = DecimalFormat("#,###")
         val giaSP = formatter.format(sanPham.gia)
         holder.txtgiasp.text = "Giá : $giaSP Đ"
-        holder.txtsoluong.text = sanPham.soluong.toString()
-        holder.txttongtien.text = sanPham.tongtien.toString()
+        holder.txtsoluong.text = donHang.soluong.toString()
+        holder.txttongtien.text = donHang.tongtien.toString()
 
     }
 
-    override fun getItemCount(): Int = lisGioHang.size
+    override fun getItemCount(): Int = listDonHang.size
 
     class ViewHolder (itemVew : View) : RecyclerView.ViewHolder(itemVew){
         var  img_giohang = itemVew.findViewById<ImageView>(R.id.img_item_giohang)

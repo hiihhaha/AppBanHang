@@ -15,6 +15,4 @@ class SanPham(
     var hinhanh : String,
     var mota : String,
     var loai : Int,
-    var soluong : Int,
-    var tongtien : Int
 ) : Serializable
