@@ -33,11 +33,6 @@ class GioHangController() {
                 }
             }
         }
-
-
-        fun deleteSanPham() {
-
-        }
     }
 }
 
