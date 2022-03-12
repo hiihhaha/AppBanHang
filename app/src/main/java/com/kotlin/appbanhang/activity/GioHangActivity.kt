@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.kotlin.appbanhang.R
 import com.kotlin.appbanhang.adapter.GioHangAdapter
 import com.kotlin.appbanhang.model.DonHang
-import com.kotlin.appbanhang.model.GioHangController
+import com.kotlin.appbanhang.model.GioHangControler
 import kotlinx.android.synthetic.main.activity_gio_hang.*
 
 class GioHangActivity : AppCompatActivity() {
@@ -22,7 +22,7 @@ class GioHangActivity : AppCompatActivity() {
     }
 
     private fun setupRecyclerviewGioHang() {
-        listGioHang = GioHangController.manggiohang
+        listGioHang = GioHangControler.manggiohang
        adapterGioHang = GioHangAdapter(this,listGioHang,::onItemDonHangChange)
         rcv_giohang.adapter = adapterGioHang
         rcv_giohang.layoutManager = LinearLayoutManager(this)

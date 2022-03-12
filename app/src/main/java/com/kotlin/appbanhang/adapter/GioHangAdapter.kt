@@ -15,7 +15,7 @@ import com.airbnb.lottie.utils.Utils
 import com.bumptech.glide.Glide
 import com.kotlin.appbanhang.R
 import com.kotlin.appbanhang.model.DonHang
-import com.kotlin.appbanhang.model.GioHangController
+import com.kotlin.appbanhang.model.GioHangControler
 import com.kotlin.appbanhang.model.SanPham
 import java.text.DecimalFormat
 
@@ -57,7 +57,7 @@ class GioHangAdapter(
                         "Đồng ý"
                     ) { _, _ ->
                         // Click đồng ý thì xóa sản phẩm
-                        GioHangController.manggiohang.remove(donHang)
+                        GioHangControler.manggiohang.remove(donHang)
                         // Cập nhật giao diện cho list đơn hàng
                         notifyItemChanged(position)
                         //thông báo cho màn hình giỏ hàng biết đơn hàng có sự thay đổi

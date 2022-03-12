@@ -13,7 +13,7 @@ import com.bumptech.glide.Glide
 import com.google.android.material.badge.BadgeDrawable
 import com.google.android.material.badge.BadgeUtils
 import com.kotlin.appbanhang.R
-import com.kotlin.appbanhang.model.GioHangController
+import com.kotlin.appbanhang.model.GioHangControler
 import com.kotlin.appbanhang.model.SanPham
 import com.kotlin.appbanhang.utils.Utils
 import com.skydoves.powerspinner.SpinnerAnimation
@@ -23,7 +23,7 @@ import kotlinx.android.synthetic.main.activity_chi_tiet_main.*
 import java.text.DecimalFormat
 
 class ChiTietMainActivity : AppCompatActivity() {
-
+    var gioHangControler = GioHangControler()
     var sanPham: SanPham? = null
     var soLuong = 1
 
@@ -52,7 +52,7 @@ class ChiTietMainActivity : AppCompatActivity() {
         }
         img_back.setOnClickListener { onBackPressed() }
         btn_them.setOnClickListener {
-            sanPham?.let { GioHangController.addSanPham(it, soLuong) }
+            sanPham?.let { gioHangControler.addSanpham(it, soLuong) }
             // Cập nhật lại hiển thị giỏ hàng
             updateUIGioHang()
         }
@@ -108,7 +108,7 @@ class ChiTietMainActivity : AppCompatActivity() {
     // Hiển thị giỏ hàng
     private fun updateUIGioHang() {
         var soLuong = 0
-        GioHangController.manggiohang.forEach {
+        GioHangControler.manggiohang.forEach {
             // Cộng lại tổng số lượng trong giỏ hàng
             soLuong += it.soluong
         }

@@ -10,8 +10,10 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        txt_login.setOnClickListener {
-            startActivity(Intent(this,MainActivity::class.java))
+
+        txt_dangky.setOnClickListener {
+            startActivity(Intent(this,SignUpActivity::class.java))
+            finish()
         }
     }
 }
