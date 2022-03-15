@@ -1,5 +1,4 @@
 package com.kotlin.appbanhang.activity
-
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -110,6 +109,11 @@ class SignUpActivity : AppCompatActivity() {
             ?.subscribe(object : SingleObserver<UserResponse> {
                 override fun onSuccess(userResponse : UserResponse) {
                     if (userResponse.success == true) {
+                         userResponse.result?.getOrNull(0)?.let {
+                             // Lưu giá trị user mà server trả về cho biến static user
+                             Utils.user = it
+                         }
+
                         Toast.makeText(this@SignUpActivity,"Đăng ký thành công",Toast.LENGTH_SHORT).show()
                         var intent = Intent(this@SignUpActivity,MainActivity::class.java)
                         startActivity(intent)

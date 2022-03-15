@@ -9,7 +9,6 @@ import androidx.core.view.GravityCompat
 import com.bumptech.glide.Glide
 import com.kotlin.appbanhang.R
 import kotlinx.android.synthetic.main.activity_main.*
-
 import android.net.ConnectivityManager
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager

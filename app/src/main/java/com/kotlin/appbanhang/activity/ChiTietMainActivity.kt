@@ -1,24 +1,15 @@
 package com.kotlin.appbanhang.activity
-
 import android.content.Intent
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
-import com.google.android.material.badge.BadgeDrawable
-import com.google.android.material.badge.BadgeUtils
 import com.kotlin.appbanhang.R
 import com.kotlin.appbanhang.model.GioHangControler
 import com.kotlin.appbanhang.model.SanPham
-import com.kotlin.appbanhang.utils.Utils
-import com.skydoves.powerspinner.SpinnerAnimation
-import com.skydoves.powerspinner.SpinnerGravity
-import com.skydoves.powerspinner.createPowerSpinnerView
 import kotlinx.android.synthetic.main.activity_chi_tiet_main.*
 import java.text.DecimalFormat
 

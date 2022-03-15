@@ -53,6 +53,7 @@ dependencies {
     implementation "com.github.akarnokd:rxjava3-retrofit-adapter:3.0.0"
     //okkhttp
     implementation("com.squareup.okhttp3:okhttp:4.9.3")
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.2.2'
 
     implementation("androidx.cardview:cardview:1.0.0")
 //lottie anim

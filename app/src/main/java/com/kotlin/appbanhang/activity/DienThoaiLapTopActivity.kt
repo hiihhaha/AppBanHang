@@ -14,11 +14,9 @@ import com.kotlin.appbanhang.retrofit.ApiBanHang
 import com.kotlin.appbanhang.retrofit.RetrofitCilent
 import com.kotlin.appbanhang.utils.Utils
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observer
 import io.reactivex.rxjava3.core.SingleObserver
 import io.reactivex.rxjava3.disposables.Disposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.android.synthetic.main.activity_dien_thoai_lap_top.*
 import kotlinx.android.synthetic.main.activity_dien_thoai_lap_top.*
 
 class DienThoaiLapTopActivity : AppCompatActivity() {

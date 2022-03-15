@@ -26,6 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/login_email"
             app:layout_constraintTop_toBottomOf="@id/txt_login"
             android:drawableLeft="@drawable/ic_baseline_email_24"
             android:inputType="textEmailAddress"
@@ -44,6 +45,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/login_password"
             android:drawableLeft="@drawable/ic_key_24"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
@@ -65,6 +67,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <LinearLayout
+        android:id="@+id/line3"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
@@ -85,7 +88,17 @@
             android:textSize="18sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-
     </LinearLayout>
+    <TextView
+        android:id="@+id/txt_rspass"
+        android:textColor="@android:color/holo_red_light"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:text="Quên mật khẩu?"
+        app:layout_constraintTop_toBottomOf="@id/line3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,59 +15,46 @@ import io.reactivex.rxjava3.core.SingleObserver
 import io.reactivex.rxjava3.disposables.Disposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_sign_up.*
+import kotlinx.android.synthetic.main.activity_reset_password.*
 
-class LoginActivity : AppCompatActivity() {
+class ResetPasswordActivity : AppCompatActivity() {
     var apiBanHang = RetrofitCilent.getInstance(Utils.BaseUrl)?.create(ApiBanHang::class.java)
     var email = ""
-    var password = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
-        initControl()
+        setContentView(R.layout.activity_reset_password)
+        initControll()
+
+
     }
 
-    private fun initControl() {
-        btn_login.setOnClickListener {
+    private fun initControll() {
+        btn_rspassword.setOnClickListener {
             if (isValidateSuccess()) {
-                dangnhap()
-            }
-        }
+                resetpass()
+                // ????????????????????????
+                progressbar.visibility
 
-        txt_dangky.setOnClickListener {
-            startActivity(Intent(this, SignUpActivity::class.java))
-            finish()
-        }
-        txt_rspass.setOnClickListener {
-            startActivity(Intent(this,ResetPasswordActivity::class.java))
-            finish()
+            }
         }
     }
+
     private fun isValidateSuccess(): Boolean {
-        email = login_email.text.toString().trim()
-        password = login_password.text.toString().trim()
-        when {
-            (TextUtils.isEmpty(email)) -> {
-                Toast.makeText(
-                    this,
-                    "Bạn chưa nhập email",
-                    Toast.LENGTH_SHORT
-                ).show()
-                return false
-            }
-            (TextUtils.isEmpty(password)) -> {
-                Toast.makeText(
-                    this,
-                    "Bạn chưa nhập mật khẩu",
-                    Toast.LENGTH_SHORT
-                ).show()
-                return false
-            }
+        email = edt_email.text.toString().trim()
+
+        if (TextUtils.isEmpty(email)) {
+            Toast.makeText(
+                this,
+                "Bạn chưa nhập email",
+                Toast.LENGTH_SHORT)
+            return false
         }
+
         return true
     }
-    private fun dangnhap() {
-        apiBanHang?.login(email, password)
+
+    private fun resetpass() {
+        apiBanHang?.resetpass(email)
             ?.subscribeOn(Schedulers.io())
             ?.observeOn(AndroidSchedulers.mainThread())
             ?.subscribe(object : SingleObserver<UserResponse> {
@@ -75,18 +62,19 @@ class LoginActivity : AppCompatActivity() {
                     if (userResponse.success == true) {
                         userResponse.result?.getOrNull(0)?.let {
                             Utils.user = it
+
                         }
                         Toast.makeText(
-                            this@LoginActivity,
-                            "Đăng nhập thành công",
+                            this@ResetPasswordActivity,
+                            "reset pass thành công",
                             Toast.LENGTH_SHORT
                         ).show()
-                        var intent = Intent(this@LoginActivity, MainActivity::class.java)
+                        var intent = Intent(this@ResetPasswordActivity, LoginActivity::class.java)
                         startActivity(intent)
                         finish()
                     } else {
                         Toast.makeText(
-                            this@LoginActivity,
+                            this@ResetPasswordActivity,
                             userResponse.message,
                             Toast.LENGTH_SHORT
                         ).show()
@@ -94,11 +82,13 @@ class LoginActivity : AppCompatActivity() {
                 }
 
                 override fun onError(e: Throwable) {
-                    Toast.makeText(this@LoginActivity, e.message, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@ResetPasswordActivity, e.message, Toast.LENGTH_SHORT).show()
                 }
 
                 override fun onSubscribe(d: Disposable) {
                 }
             })
+
+
     }
 }

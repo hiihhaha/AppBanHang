@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/AppBanHang/app/src/main/res/drawable/drawable_button.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/AppBanHang/app/src/main/res/drawable/spinner.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/AppBanHang/app/src/main/res/layout/activity_Sing_Up.xml" value="0.23802083333333332" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/AppBanHang/app/src/main/res/layout/activity_chi_tiet_main.xml" value="0.264" />
@@ -14,6 +15,8 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/AppBanHang/app/src/main/res/layout/activity_lap_top.xml" value="0.22395833333333334" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/AppBanHang/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/AppBanHang/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/AppBanHang/app/src/main/res/layout/activity_pay.xml" value="0.23802083333333332" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/AppBanHang/app/src/main/res/layout/activity_reset_password.xml" value="0.264" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/AppBanHang/app/src/main/res/layout/activity_sign_up.xml" value="0.23802083333333332" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/AppBanHang/app/src/main/res/layout/dialog_prorgress.xml" value="0.23802083333333332" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/AppBanHang/app/src/main/res/layout/item_dienthoai.xml" value="0.264" />

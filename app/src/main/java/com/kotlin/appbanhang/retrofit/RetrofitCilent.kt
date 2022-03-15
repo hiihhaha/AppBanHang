@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit
 import com.google.gson.GsonBuilder
 
 import com.google.gson.Gson
+import okhttp3.logging.HttpLoggingInterceptor
 
 class RetrofitCilent {
 
@@ -19,6 +20,10 @@ class RetrofitCilent {
     companion object {
         private var instance: Retrofit? = null
         fun getInstance(baseUrl: String): Retrofit? {
+            val loggingInterceptor = HttpLoggingInterceptor().apply {
+                level = HttpLoggingInterceptor.Level.BODY
+            }
+
             val okkHttpClient = OkHttpClient.Builder()
                 .connectTimeout(60, TimeUnit.SECONDS)
                 .readTimeout(60, TimeUnit.SECONDS)

@@ -25,7 +25,19 @@ interface ApiBanHang {
         @Field("email") email : String,
         @Field("password") password : String,
         @Field("username") username : String,
-        @Field("numbuerphone") numberphone : String
+        @Field("numberphone") numberphone : String
+    ) : Single<UserResponse>
+
+    @FormUrlEncoded
+    @POST("login.php")
+    fun login(
+        @Field("email") email : String,
+        @Field("password") password : String,
+    ) : Single<UserResponse>
+    @FormUrlEncoded
+    @POST("resetpassword.php")
+    fun resetpass(
+        @Field("email") email : String,
     ) : Single<UserResponse>
 
 
