@@ -58,7 +58,7 @@
         android:id="@+id/layout3"
         android:weightSum="2"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@id/btn_mua"
+        app:layout_constraintBottom_toTopOf="@id/btn_datmua"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -84,13 +84,14 @@
             android:layout_height="wrap_content"
             android:text="50.000Đ "/>
     </LinearLayout>
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
+        android:background="#F89A0F"
         android:layout_margin="10dp"
         android:textStyle="bold"
         android:padding="5dp"
-        android:id="@+id/btn_mua"
+        android:id="@+id/btn_datmua"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:text="Mua Ngay"
+        android:text="Đặt Mua"
         android:layout_width="match_parent"
         android:layout_height="64dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

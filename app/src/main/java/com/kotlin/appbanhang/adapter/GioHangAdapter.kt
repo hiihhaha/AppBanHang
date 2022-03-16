@@ -1,22 +1,16 @@
 package com.kotlin.appbanhang.adapter
-
 import android.app.AlertDialog
 import android.content.Context
-import android.content.DialogInterface
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.airbnb.lottie.utils.Utils
 import com.bumptech.glide.Glide
 import com.kotlin.appbanhang.R
 import com.kotlin.appbanhang.model.DonHang
 import com.kotlin.appbanhang.model.GioHangControler
-import com.kotlin.appbanhang.model.SanPham
 import java.text.DecimalFormat
 
 class GioHangAdapter(
@@ -74,10 +68,7 @@ class GioHangAdapter(
             holder.txttongtien.text = (sanPham.gia * donHang.soluong).toString()
             onItemDonHangChange.invoke(donHang)
         }
-
-
     }
-
     override fun getItemCount(): Int = listDonHang.size
     class ViewHolder(itemVew: View) : RecyclerView.ViewHolder(itemVew) {
         var btntru = itemVew.findViewById<ImageView>(R.id.img_item_tru)

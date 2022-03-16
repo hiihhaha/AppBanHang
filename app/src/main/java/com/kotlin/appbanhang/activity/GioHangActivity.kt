@@ -1,4 +1,5 @@
 package com.kotlin.appbanhang.activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,6 +12,7 @@ import kotlinx.android.synthetic.main.activity_gio_hang.*
 class GioHangActivity : AppCompatActivity() {
     var adapterGioHang :GioHangAdapter? = null
     var listGioHang = ArrayList<DonHang>()
+    var tongTienSp = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gio_hang)
@@ -32,13 +34,18 @@ class GioHangActivity : AppCompatActivity() {
     }
     private fun initControl (){
         img_back2.setOnClickListener{onBackPressed()}
-    }
-
-    private fun updateTongTien(){
-        var tongTien = 0
-        listGioHang.forEach {
-            tongTien += (it.sanPham.gia * it.soluong)
+        btn_datmua.setOnClickListener {
+            var intent = Intent(this,PayActivity::class.java)
+            intent.putExtra("tongtien",tongTienSp)
+            startActivity(intent)
         }
-        txt_tongtien.text = tongTien.toString()
+    }
+//có sự thay đổi từ tongtiensp gọi lên biến toàn cục
+    private fun updateTongTien(){
+         tongTienSp  = 0
+        listGioHang.forEach {
+            tongTienSp += (it.sanPham.gia * it.soluong)
+        }
+        txt_tongtien.text = tongTienSp.toString()
     }
 }

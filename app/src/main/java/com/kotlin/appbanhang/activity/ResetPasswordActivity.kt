@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.View
 import android.widget.Toast
 import com.kotlin.appbanhang.R
 import com.kotlin.appbanhang.model.UserResponse
@@ -31,9 +32,10 @@ class ResetPasswordActivity : AppCompatActivity() {
     private fun initControll() {
         btn_rspassword.setOnClickListener {
             if (isValidateSuccess()) {
+                progressbar.visibility = View.VISIBLE
                 resetpass()
                 // ????????????????????????
-                progressbar.visibility
+
 
             }
         }
@@ -59,6 +61,7 @@ class ResetPasswordActivity : AppCompatActivity() {
             ?.observeOn(AndroidSchedulers.mainThread())
             ?.subscribe(object : SingleObserver<UserResponse> {
                 override fun onSuccess(userResponse: UserResponse) {
+                    progressbar.visibility = View.GONE
                     if (userResponse.success == true) {
                         userResponse.result?.getOrNull(0)?.let {
                             Utils.user = it
@@ -82,6 +85,7 @@ class ResetPasswordActivity : AppCompatActivity() {
                 }
 
                 override fun onError(e: Throwable) {
+                    progressbar.visibility = View.GONE
                     Toast.makeText(this@ResetPasswordActivity, e.message, Toast.LENGTH_SHORT).show()
                 }
 

@@ -36,7 +36,7 @@ class SignUpActivity : AppCompatActivity() {
     private fun initControll() {
         btn_dangky.setOnClickListener {
             // kiem tra o phia app thanh cong thi call api
-            if (isValidateSuccess() == true){
+            if (isValidateSuccess()){
                 dangKy()
             }
 
